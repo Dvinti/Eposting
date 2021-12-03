@@ -1,0 +1,25 @@
+html {
+    background-color:#6dd5f2;
+}
+body{
+    margin: auto;
+    width: 50%;
+    border: 2px black;
+    background-color: aliceblue;
+    outline-style: hidden;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",
+    Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji",
+    "Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+}
+h1{
+    margin-left: 10px;
+}
+
+.login{
+    margin: auto;
+    width: 50%;
+}
+
+.hidden{
+    display:none;
+}
