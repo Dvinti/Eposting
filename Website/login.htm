@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="login.css">
+    <head>
+        <title>E-Posting</title>
+        <link rel="icon" href="icon.png">
+    </head>
+    <body>
+        <div>
+            <header>
+                <a class="EPostingLogo" href="/">
+                    
+                </a>
+            </header>
+            <div class="header">
+                <h1 class="headerTitle">Log in</h1>
+            </div>
+            <form class="Login" method="post" action="/loginEmployee.php">
+                <div class="input">
+                    <input id="username" name="session_key" type="text" value="Username or Email">
+                    <label class="login_label" for="username" aria-hidden="true">Username or Email</label>
+                </div>
+                <div>
+                    <input id="password" name="session_password" type="password" validation="password">
+                    <label for="login_label" for="password">Password</label><br><br>
+                    <input type="checkbox" onclick="passwordVisibility()">Show Password
+                    <script type="text/javascript" src="login.js"></script>
+                </div>
+            </form>
+            <!--
+            <div class="button">
+                <label for="Login">Username/Email:</label>
+                <input type="text" id="Login" name="username">
+                <label for="Login">Username/Email:</label>
+                <input type="text" id="Login" name="username">
+            -->
+        </div>
+    </body>
+</html>
