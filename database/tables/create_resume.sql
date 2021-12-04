@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS resume;
+
+CREATE TABLE resume (
+  ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+  employeeUserID INTEGER,
+  CONSTRAINT `fk_resume_employee` FOREIGN KEY (employeeUserID) REFERENCES `employee` (UserID) ON DELETE CASCADE
+);

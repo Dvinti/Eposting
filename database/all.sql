@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS manages_job;
+DROP TABLE IF EXISTS manages_resume;
+DROP TABLE IF EXISTS requires;
+DROP TABLE IF EXISTS includes;
+DROP TABLE IF EXISTS apply;
+DROP TABLE IF EXISTS resume;
+DROP TABLE IF EXISTS job_listing;
+DROP TABLE IF EXISTS jobtype;
+DROP TABLE IF EXISTS skills;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS employer;
+
+source tables/create_employer.sql;
+source tables/create_employee.sql;
+source tables/create_skills.sql;
+source tables/create_jobtype.sql;
+source tables/create_job_listing.sql;
+source tables/create_resume.sql;
+source tables/create_apply.sql;
+source tables/create_includes.sql;
+source tables/create_requires.sql;
+source tables/create_manages_resume.sql;
+source tables/create_manages_job.sql;
