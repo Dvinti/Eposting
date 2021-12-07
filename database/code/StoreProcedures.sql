@@ -1,10 +1,10 @@
--- Create Procedure for Registering Employees
+-- Create Procedure for Registering Employers
 
 DROP PROCEDURE IF EXISTS RegisterEmployer;
 
 DELIMITER //
 
-CREATE PROCEDURE RegisterEmployer(param_company varchar(15), param_address varchar(30),param_city varchar(20),param_state varchar(3), param_email varchar(40),param_username varchar(30),param_password varchar(50) )
+CREATE PROCEDURE RegisterEmployer(param_company varchar(15), param_address varchar(30), param_city varchar(20), param_state varchar(3), param_email varchar(40), param_username varchar(30), param_password varchar(50) )
 BEGIN
 	SELECT COUNT(*) INTO @employerCount
 	FROM employer
@@ -24,7 +24,7 @@ DELIMITER ;
 
 --CALL RegisterEmployer('CSUB','Adrress','Bakersfield','CA','@email','username','password');
 
--- Create Procedure for Registering Employers
+-- Create Procedure for Registering Employees
 
 DROP PROCEDURE IF EXISTS RegisterEmployee;
 
