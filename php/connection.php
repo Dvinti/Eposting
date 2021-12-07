@@ -14,8 +14,7 @@
         static $connection;
 
         if (!isset($connection)) {
-		$connection = mysqli_connect('localhost','eposting',
-			'gnitsope3420','eposting')or die(mysqli_connect_error());
+		$connection = mysqli_connect('localhost','eposting','gnitsope3420','eposting')or die(mysqli_connect_error());
         }
         if ($connection === false) {
             echo "Unable to connect to database<br/>";

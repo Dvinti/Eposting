@@ -1,25 +1,80 @@
-html {
-    background-color:#6dd5f2;
+header{
+    background-color: white;
 }
-body{
+body {
+    background-color:#334747;
+}
+
+.bg-image{
+    background-image: url('images/office2.jpg');
+    background-repeat: no-repeat;
+    height: 750px;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.EpostingLogo{
+    height: 10px
+}
+
+.SignInCard{
+    margin-top: 50px;
     margin: auto;
-    width: 50%;
-    border: 2px black;
-    background-color: aliceblue;
+    height: 400px;
+    width: 25%;
+    border: 4px #c7cccc;
+    background-color: white;
     outline-style: hidden;
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",
     Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji",
     "Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
 }
-h1{
-    margin-left: 10px;
+
+.SignInTitle{
+    margin: 30px;
 }
 
-.login{
-    margin: auto;
-    width: 50%;
+.user-login{
+    font-size: 16px;
+    margin-left: 30px;
 }
 
-.hidden{
-    display:none;
+.password-login{
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+.password-box{
+    margin-left: 3px;
+}
+
+.pass-request{
+    margin-top: 5px;
+    margin-left: 30px;
+    font-size: 16px;
+    font-size: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",
+    Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji",
+    "Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+}
+
+.submit{
+    margin-left: 30px;
+    background-color: #334747;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 7px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",
+    Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji",
+    "Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+    cursor: pointer;
+
+}
+
+form i{
+    margin-left: -25px;
+    cursor: pointer;
 }

@@ -19,7 +19,8 @@ if (isset($_SESSION['UserID'] )) {
 	echo "Welcome, ". $_SESSION["Fname"];
 	echo " ". $_SESSION["Lname"];
 	echo "<br> Username: ". $_SESSION["username"];
-	echo "<br> Password: ". $_SESSION["password"];
+	echo "<br> inPassword: ". $_SESSION["param_password"];
+	echo "<br> Database_password: ". $_SESSION["password"];
 }
 else {
 	header("Location: loginEmployee.php");
