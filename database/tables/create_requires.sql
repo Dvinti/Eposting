@@ -6,8 +6,8 @@ CREATE TABLE requires
     exp_years INTEGER(2),
     skill_ID INTEGER,
     PRIMARY KEY (job_listingID, skill_ID),
-    CONSTRAINT `fk_requires_joblisting` FOREIGN KEY (job_listingID) REFERENCES `job_listing` (ID) ON DELETE CASCADE,
-    CONSTRAINT `fk_requires_skills` FOREIGN KEY (skill_ID) REFERENCES `skills` (ID) ON DELETE CASCADE
+    CONSTRAINT `fk_requires_joblisting` FOREIGN KEY (job_listingID) REFERENCES `job_listing` (ID) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_requires_skills` FOREIGN KEY (skill_ID) REFERENCES `skills` (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO requires (job_listingID, exp_years, skill_ID) VALUES (1, 4, (SELECT ID FROM skills WHERE skill="Engineering Mathematics"));

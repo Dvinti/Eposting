@@ -8,18 +8,29 @@ WHERE city = "Bakersfield";
 
 SELECT * FROM Bakersfield_Employees;
 
--- Create a view where all full-time jobs are shown
+----------------------------------------------------------------------------------------------------------------------------------------------------
+-- A Shortened version of employee without private data
 
-DROP VIEW Full_Time_Work;
-CREATE VIEW Full_Time_Work AS
-SELECT jl.name, jt.type
+DROP VIEW ShortEmployee;
+CREATE VIEW ShortEmployee AS
+SELECT UserID, Fname, Lname, DOB, address, city, state
+FROM employee;
+
+SELECT * FROM ShortEmployee;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Create a view where all jobs are shown
+
+DROP VIEW Jobs;
+CREATE VIEW Jobs AS
+SELECT DISTINCT jl.name, jt.type
 FROM job_listing AS jl
-INNER JOIN jobtype AS jt 
-ON jl.jobtypeID = jt.ID
-WHERE jobtypeID = 1;
+INNER JOIN jobtype AS jt
+LIMIT 30;
 
-SELECT * FROM Full_Time_Work;
+SELECT * FROM Jobs;
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Create a view for job listing where it requires Engineering Mathematics
 
 DROP VIEW Engineering_Mathematics;
@@ -32,3 +43,18 @@ JOIN skills AS s ON r.skill_ID = s.ID
 WHERE skill = "Engineering Mathematics";
 
 SELECT * FROM Engineering_Mathematics;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Shows a resume that has the name, date of birth, ssn, the skills they have and the number of experience years
+
+DROP VIEW ShortResume;
+CREATE VIEW ShortResume AS
+SELECT e.UserID, e.Fname, e.Lname, e.DOB, e.email, s.skill, i.exp_years
+FROM employee AS e
+JOIN resume AS r ON r.employeeUserID = e.UserID
+JOIN includes AS i ON i.resumeID = r.ID
+JOIN skills AS s ON s.ID = i.skill_ID;
+
+SELECT * FROM ShortResume;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------

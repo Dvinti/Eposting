@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS job_listing;
 
 CREATE TABLE job_listing (
-  employerUserID INTEGER,
   ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+  employerUserID INTEGER,
   name VARCHAR(40) NOT NULL,
   jobtypeID INT(1) NOT NULL,
   description TEXT,
-  CONSTRAINT `fk_joblisting_employer` FOREIGN KEY (employerUserID) REFERENCES `employer` (UserID) ON DELETE CASCADE,
-  CONSTRAINT `fk_joblisting_jobtype` FOREIGN KEY (jobtypeID) REFERENCES `jobtype` (ID) ON DELETE CASCADE
+  CONSTRAINT `fk_joblisting_employer` FOREIGN KEY (employerUserID) REFERENCES `employer` (UserID) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_joblisting_jobtype` FOREIGN KEY (jobtypeID) REFERENCES `jobtype` (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 insert into job_listing (employerUserID, name, jobtypeID, description) values (24, 'Chief Design Engineer', 3, 'Etiam pretium iaculis justo.');
