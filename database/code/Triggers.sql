@@ -14,7 +14,7 @@ END;
 
 DELIMITER ;
 
---INSERT INTO employee (UserID, Fname, Lname, DOB, SSN, address, city, state, email, username, password) VALUES (36, 'Fname', 'Lname', '1990-12-28', '180-48-1934', '206 S Second Ave', 'Arcadia', 'CA', 'random@yahoo.com', 'nRandom', 'MnfCi02lke');
+-- INSERT INTO employee (UserID, Fname, Lname, DOB, SSN, address, city, state, email, username, password) VALUES (36, 'Fname', 'Lname', '1990-12-28', '180-48-1934', '206 S Second Ave', 'Arcadia', 'CA', 'random@yahoo.com', 'nRandom', 'MnfCi02lke');
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -38,7 +38,19 @@ DELIMITER ;
 
 -- If an employer deletes a job_listing, remove all corresponding applications
 
+DROP TRIGGER removeAllApps;
 
+DELIMITER //
+
+CREATE TRIGGER removeAllApps
+BEFORE DELETE ON job_listing
+FOR EACH ROW
+BEGIN
+    DELETE FROM apply WHERE job_listingID = Old.ID;
+END;
+//
+
+DELIMITER ;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
