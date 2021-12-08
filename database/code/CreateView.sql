@@ -58,3 +58,16 @@ JOIN skills AS s ON s.ID = i.skill_ID;
 SELECT * FROM ShortResume;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Creates a view to show profile information 
+
+DROP VIEW IF EXISTS Profile;
+CREATE VIEW Profile AS
+Select e.username, CONCAT(e.Fname, ' ', e.Lname) AS "Name", 
+e.DOB, e.email, CONCAT(e.address, ', ', e.city, ', ', e.state) AS "Address"
+FROM employee as e;
+
+SELECT * FROM Profile;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+

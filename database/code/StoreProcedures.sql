@@ -47,7 +47,7 @@ END;
 //
 DELIMITER ;
 
-CALL RegisterEmployee('Fname','Lname','1970-11-24','SSN','Address','Bakersfield','CA','@email','username2','password3');
+CALL RegisterEmployee('Fname','Lname','1970-11-24','SSN','Address','Bakersfield','CA','hello@email.com','username2','password3');
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -122,3 +122,23 @@ DELIMITER ;
 
 CALL newApplication(29, 24);
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Shows a view where it returns the number of applications on each job listing
+
+DROP PROCEDURE IF EXISTS AppliedJobs;
+
+DELIMITER //
+
+CREATE PROCEDURE AppliedJobs()
+BEGIN
+    SELECT jl.name AS "Professions", j.type AS "Type", COUNT(a.appID) AS Applications
+    FROM job_listing AS jl
+    INNER JOIN apply AS a ON job_listingID = jl.ID
+    INNER JOIN jobtype as j ON j.ID = jl.jobtypeID
+    GROUP BY job_listingID
+    ORDER BY jl.name ASC;
+END;
+//
+
+DELIMITER ;
+
+CALL AppliedJobs();
