@@ -21,12 +21,13 @@ SELECT * FROM ShortEmployee;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Create a view where all jobs are shown
 
-DROP VIEW Jobs;
+DROP VIEW IF EXISTS Jobs;
 CREATE VIEW Jobs AS
-SELECT DISTINCT jl.name, jt.type
+SELECT DISTINCT jl.name AS "Professions", jt.type AS "Type", s.skill AS "Required Skills"
 FROM job_listing AS jl
 INNER JOIN jobtype AS jt
-LIMIT 30;
+INNER JOIN requires AS r ON r.job_listingID = jl.ID
+INNER JOIN skills AS s ON r.skill_ID = s.ID;
 
 SELECT * FROM Jobs;
 
@@ -47,7 +48,7 @@ SELECT * FROM Engineering_Mathematics;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Shows a resume that has the name, date of birth, ssn, the skills they have and the number of experience years
 
-DROP VIEW ShortResume;
+DROP VIEW IF EXISTS ShortResume;
 CREATE VIEW ShortResume AS
 SELECT e.UserID, e.Fname, e.Lname, e.DOB, e.email, s.skill, i.exp_years
 FROM employee AS e
@@ -69,5 +70,17 @@ FROM employee as e;
 SELECT * FROM Profile;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Creates a view to show the number of applications submitted from employees
+
+DROP VIEW IF EXISTS EmployeeApplications;
+CREATE VIEW EmployeeApplications AS
+SELECT CONCAT(e.Fname, ' ', e.Lname) AS "Name",
+COUNT(a.job_listingID) AS "Number of Applications"
+FROM employee AS e 
+JOIN apply AS a ON e.UserID = a.employeeUserID
+GROUP BY a.job_listingID
+ORDER BY e.UserID ASC;
 
 
+SELECT * FROM EmployeeApplications;
+----------------------------------------------------------------------------------------------------------------------------------------------------
