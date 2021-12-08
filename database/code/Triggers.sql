@@ -16,6 +16,8 @@ DELIMITER ;
 
 --INSERT INTO employee (UserID, Fname, Lname, DOB, SSN, address, city, state, email, username, password) VALUES (36, 'Fname', 'Lname', '1990-12-28', '180-48-1934', '206 S Second Ave', 'Arcadia', 'CA', 'random@yahoo.com', 'nRandom', 'MnfCi02lke');
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
 -- If an employee is removed, the resume is also removed.
 
 DROP TRIGGER IF EXISTS delEmployee;
@@ -31,6 +33,14 @@ END;
 //
 
 DELIMITER ;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- If an employer deletes a job_listing, remove all corresponding applications
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- If email is not valid, will not insert
 
@@ -65,3 +75,5 @@ END;
 //
 
 DELIMITER ;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------

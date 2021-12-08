@@ -1,4 +1,4 @@
--- Create Procedure for Registering Employers
+-- For Registering Employers
 
 DROP PROCEDURE IF EXISTS RegisterEmployer;
 
@@ -23,7 +23,9 @@ DELIMITER ;
 
 --CALL RegisterEmployer('CSUB','Address','Bakersfield','CA','@email','username','password');
 
--- Create Procedure for Registering Employees
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- For Registering Employees
 
 DROP PROCEDURE IF EXISTS RegisterEmployee;
 
@@ -47,6 +49,10 @@ DELIMITER ;
 
 --CALL RegisterEmployee('Fname','Lname','1970-11-24','SSN','Address','Bakersfield','CA','@email','username2','password3');
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- For updating resumes
+
 DROP PROCEDURE IF EXISTS updateResume;
 
 DELIMITER //
@@ -62,11 +68,15 @@ DELIMITER ;
 
 --CALL updateResume(30, 29413, 4);
 
-DROP PROCEDURE IF EXISTS newJob;
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- For creating a new joblist
+
+DROP PROCEDURE IF EXISTS newJoblist;
 
 DELIMITER //
 
-CREATE PROCEDURE newJob(param_employerUserID int(11), param_ID int(11), param_name varchar(40), param_jobtypeID int(1), param_description text)
+CREATE PROCEDURE newJoblist(param_ID int(11), param_employerUserID int(11), param_name varchar(40), param_jobtypeID int(1), param_description text)
 BEGIN
     SELECT COUNT(*) INTO @JobCount
     FROM job_listing
@@ -76,9 +86,35 @@ BEGIN
         SELECT NULL AS param_ID, "Job Listing already exists" AS 'Error';
     ELSE
         INSERT INTO job_listing(employerUserID, ID, name, jobtypeID, description)
-        VALUES (param_employerUserID, param_ID, param_name,param_jobtypeID, param_description);
+        VALUES (param_ID, param_employerUserID, param_name,param_jobtypeID, param_description);
     END IF;
 END;
 //
 
 DELIMITER ;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- For creating new applications
+
+DROP PROCEDURE IF EXISTS newApplication;
+
+DELIMITER //
+
+CREATE PROCEDURE newApplication(userID INT, jobID INT)
+BEGIN
+    SELECT * FROM apply;
+
+    IF employeeUserID = userID AND job_listingID = jobID THEN
+        SELECT NULL AS jobID, "Job Application already exists" AS 'ERROR';
+    ELSE
+        INSERT INTO apply (employeeUserID, job_listingID) VALUES (UserID, jobID);
+    END IF;
+END;
+//
+
+DELIMITER ;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
