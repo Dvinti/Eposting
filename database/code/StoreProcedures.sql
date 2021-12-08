@@ -59,7 +59,6 @@ DELIMITER //
 
 CREATE PROCEDURE updateResume(resID INT, skills INT, experience INT(2))
 BEGIN
-    SELECT * FROM includes;
     UPDATE includes SET skill_ID = skills, exp_years = experience WHERE resumeID = resID;
 END;
 //
