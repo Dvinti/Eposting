@@ -12,7 +12,7 @@
 
         <div>
             <header>
-                <a class="EPostingLogo" href="/">
+                <a class="EPostingLogo" href="index.php">
                     <img src="images/logo header.png" alt="images/icon.png">
                 </a>
             </header>
