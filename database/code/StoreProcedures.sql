@@ -4,47 +4,81 @@ DROP PROCEDURE IF EXISTS RegisterEmployer;
 
 DELIMITER //
 
-CREATE PROCEDURE RegisterEmployer(param_company varchar(15), param_address varchar(30), param_city varchar(20), param_state varchar(3), param_email varchar(40), param_username varchar(30), param_password varchar(50) )
+CREATE PROCEDURE RegisterEmployer(param_company varchar(15), param_address varchar(30), param_city varchar(20), param_state varchar(3), param_email varchar(40), param_username varchar(30), param_password varchar(255) )
 BEGIN
-	SELECT COUNT(*) INTO @employerCount
-	FROM employer
-	WHERE username = param_username;
+    SELECT COUNT(*) INTO @employerCount
+    FROM employer
+    WHERE username = param_username;
 
-	IF @employerCount > 0 THEN
-		SELECT NULL AS param_UserID, "Username already exists" AS 'Error';
-	ELSE
-		INSERT INTO employer (company, address, city, state, email, username, password) 
-		VALUES (param_company, param_address, param_city, param_state, param_email, param_username, param_password);
-		SELECT UserID AS param_UserID, NULL AS 'Error' FROM employer WHERE username = param_username;
-	END IF;
+    IF @employerCount > 0 THEN
+        SELECT NULL AS param_UserID, "Username already exists" AS 'Error';
+    ELSE
+        INSERT INTO employer (company, address, city, state, email, username, password) 	
+        VALUES (param_company, param_address, param_city, param_state, param_email, param_username, param_password);
+        SELECT UserID AS param_UserID, NULL AS 'Error' FROM employer WHERE username = param_username;
+    END IF;
 END;
 //
-
 DELIMITER ;
 
---CALL RegisterEmployer('CSUB','Adrress','Bakersfield','CA','@email','username','password');
+--CALL RegisterEmployer('CSUB','Address','Bakersfield','CA','@email','username','password');
 
 -- Create Procedure for Registering Employees
 
 DROP PROCEDURE IF EXISTS RegisterEmployee;
 
 DELIMITER //
-CREATE PROCEDURE RegisterEmployee(param_Fname varchar(30),param_Lname varchar(30),param_DOB date,param_SSN varchar(11),param_address varchar(30),param_city varchar(20),param_state varchar(3), param_email varchar(40),param_username varchar(30),param_password varchar(128) )
+CREATE PROCEDURE RegisterEmployee(param_Fname varchar(30),param_Lname varchar(30),param_DOB date,param_SSN varchar(11),param_address varchar(30),param_city varchar(20),param_state varchar(3), param_email varchar(40),param_username varchar(30),param_password varchar(255) )
 BEGIN
-	SELECT COUNT(*) INTO @employeeCount
-	FROM employee
-	WHERE username = param_username;
+    SELECT COUNT(*) INTO @employeeCount
+    FROM employee
+    WHERE username = param_username;
 
-	IF @employeeCount > 0 THEN
-		SELECT NULL AS param_UserID, "Username already exists" AS 'Error';
-	ELSE
-		INSERT INTO employee (Fname, Lname, DOB, SSN, address, city, state, email, username, password)
-		VALUES (param_Fname, param_Lname, param_DOB, param_SSN, param_address, param_city, param_state, param_email, param_username, param_password);
-		SELECT UserID AS param_UserID, NULL AS 'Error' FROM employee WHERE username = param_username;
-	END IF;
+    IF @employeeCount > 0 THEN
+        SELECT NULL AS param_UserID, "Username already exists" AS 'Error';
+    ELSE
+        INSERT INTO employee (Fname, Lname, DOB, SSN, address, city, state, email, username, password)
+        VALUES (param_Fname, param_Lname, param_DOB, param_SSN, param_address, param_city, param_state, param_email, param_username, param_password);
+        SELECT UserID AS param_UserID, NULL AS 'Error' FROM employee WHERE username = param_username;
+    END IF;
 END;
 //
 DELIMITER ;
 
 --CALL RegisterEmployee('Fname','Lname','1970-11-24','SSN','Address','Bakersfield','CA','@email','username2','password3');
 
+DROP PROCEDURE IF EXISTS updateResume;
+
+DELIMITER //
+
+CREATE PROCEDURE updateResume(resID INT, skills INT, experience INT(2))
+BEGIN
+    SELECT * FROM includes;
+    UPDATE includes SET skill_ID = skills, exp_years = experience WHERE resumeID = resID;
+END;
+//
+
+DELIMITER ;
+
+--CALL updateResume(30, 29413, 4);
+
+DROP PROCEDURE IF EXISTS newJob;
+
+DELIMITER //
+
+CREATE PROCEDURE newJob(param_employerUserID int(11), param_ID int(11), param_name varchar(40), param_jobtypeID int(1), param_description text)
+BEGIN
+    SELECT COUNT(*) INTO @JobCount
+    FROM job_listing
+    WHERE ID = param_ID;
+
+    IF @JobCount > 0 THEN
+        SELECT NULL AS param_ID, "Job Listing already exists" AS 'Error';
+    ELSE
+        INSERT INTO job_listing(employerUserID, ID, name, jobtypeID, description)
+        VALUES (param_employerUserID, param_ID, param_name,param_jobtypeID, param_description);
+    END IF;
+END;
+//
+
+DELIMITER ;

@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS job_listing;
 
 CREATE TABLE job_listing (
-  employerUserID INTEGER,
   ID INTEGER PRIMARY KEY AUTO_INCREMENT,
+  employerUserID INTEGER,
   name VARCHAR(40) NOT NULL,
   jobtypeID INT(1) NOT NULL,
   description TEXT,
