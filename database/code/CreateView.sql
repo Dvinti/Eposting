@@ -8,6 +8,7 @@ WHERE city = "Bakersfield";
 
 SELECT * FROM Bakersfield_Employees;
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Create a view where all full-time jobs are shown
 
 DROP VIEW Full_Time_Work;
@@ -20,6 +21,7 @@ WHERE jobtypeID = 1;
 
 SELECT * FROM Full_Time_Work;
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Create a view for job listing where it requires Engineering Mathematics
 
 DROP VIEW Engineering_Mathematics;
@@ -32,3 +34,16 @@ JOIN skills AS s ON r.skill_ID = s.ID
 WHERE skill = "Engineering Mathematics";
 
 SELECT * FROM Engineering_Mathematics;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Shows a resume that has the name, date of birth, ssn, the skills they have and the number of experience years
+
+DROP VIEW FinishedResume;
+CREATE VIEW FinishedResume AS
+SELECT e.UserID, e.Fname, e.Lname, e.DOB, e.SSN, s.skill, i.exp_years
+FROM employee AS e
+JOIN resume AS r ON r.employeeUserID = e.UserID
+JOIN includes AS i ON i.resumeID = r.ID
+JOIN skills AS s ON s.ID = i.skill_ID;
+
+SELECT * FROM FinishedResume;
