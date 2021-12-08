@@ -1,1 +1,3 @@
-// Ignore items
+# Ignores Swap Files
+*.swp
+*.swo
