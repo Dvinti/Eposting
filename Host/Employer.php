@@ -10,6 +10,9 @@
 <input type="button" onclick="location.href='employerProfile.php';" value="Profile"/>
 <br> <br>
 
+<input type="button" onclick="location.href='postJob.php';" value="Post Job"/>
+<br> <br>
+
 
 
 
