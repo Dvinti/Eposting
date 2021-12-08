@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Posting: Sign Up</title>
+    <link rel="icon" href="images/icon.png">
+</head>
+<body>
+    <header>
+        <a class="EPostingLogo" href="EPfrontpage.htm">
+            <img src="images/logo header.png" alt="images/icon.png">
+        </a>
+    </header>
+    <main>
+        <div class="bg-img">
+            <div class="js-sign-up-card">
+                <h1 class="sign-up-title">Sign Up</h1>
+                <form class="js-sign-up" action="php/registerEmployee.php" method="post">
+                    <table>
+                        <tr>
+                            <td>Fname:</td><td><input type = "text" name= "param_fname" required><br/></td>
+                        </tr>
+    	                <tr>
+                            <td>Lname:</td><td><input type = "text" name= "param_lname" required><br/></td>
+                        </tr>
+	                    <tr>
+                            <td>DOB:</td><td><input type = "date" name= "param_DOB" required><br/></td>
+                        </tr>
+                    	<tr>
+                            <td>SSN:</td><td><input type = "text" name= "param_SSN" required><br/></td>
+                        </tr>
+                    	<tr>
+                            <td>Address:</td><td><input type = "text" name= "param_address" required><br/></td>
+                        </tr>
+                    	<tr>
+                            <td>City:</td><td><input type = "text" name= "param_city" required><br/></td>
+                        </tr>
+                	    <tr>
+                            <td>State:</td><td><input type = "text" name= "param_state" required><br/></td>
+                        </tr>
+                    	<tr>
+                            <td>Email:</td><td><input type = "email" name= "param_email" required><br/></td>
+                        </tr>
+                    	<tr>
+                            <td>Username:</td><td><input type ="text" name="param_username" required><br/></td>
+                        </tr>
+                    	<tr>
+                            <td>Password:</td><td><input type ="password" name ="param_password" required><br/></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" id="submit" class="btn-reg" name="Register">Sign Up</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="r-sign-up-card">
+                <h1 class="sign-up-title">Sign Up</h1>
+	            <form class="r-sign-up" action = "php/registerEmployer.php" method="post">
+                    <table>
+                        <tr>
+    	                    <td>CompanyName:</td><td><input type = "text" name= "param_company" required><br/></td>
+                        </tr>
+                        <tr>
+	                        <td>Address:</td><td><input type = "text" name= "param_address" required><br/></td>
+                        </tr>
+                        <tr>        
+	                        <td>City:</td><td><input type = "text" name= "param_city" required><br/></td>
+                        </tr>
+                        <tr>
+	                        <td>State:</td><td><input type = "text" name= "param_state" required><br/></td>
+                        </tr>
+                        <tr>
+	                        <td>Email:</td><td><input type = "email" name= "param_email" required><br/></td>
+                        </tr>
+                        <tr>
+    	                    <td>Username:</td><td><input type ="text" name="param_username" required><br/></td>
+                        </tr>
+                        <tr>
+	                        <td>Password:</td><td><input type ="password" name ="param_password" required><br/></td>
+                        </tr>
+                        <tr>
+	                        <td><input type = "submit" name = "Register" value ="Register"></td>
+                        </tr>
+                    </table>
+	            </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img class="f-logo" src="images/logoMono-nobg.png" alt="">`
+        <td>© 2021</td>
+        <ul>
+            <li><a href="UserAgreement.htm">User Agreement</a></li>
+            <li><a href="PrivacyPolicy.htm">Privacy Policy</a></li>
+            <li><a href="CommunityGuidelines">Community Guidelines</a></li>
+            <li><a href="CookiePolicy.htm">Cookie Policy</a></li>
+            <li><a href="CopyrightPolicy.htm">Copyright Policy</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
