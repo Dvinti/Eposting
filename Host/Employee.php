@@ -7,6 +7,9 @@
     <input type="submit" value="Log out" />
 </form>
 
+<input type="button" onclick="location.href='employeeProfile.php';" value="Profile"/>
+<br>
+
 <?php
 
 require_once "connection.php";

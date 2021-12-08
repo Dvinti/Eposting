@@ -94,11 +94,20 @@ if (isset($_POST['Login'])) {
 
 				if ($isGood) {
 					$_SESSION["UserID"] = $res_id;
-					$_SESSION["username"] = $res_user;
 					$_SESSION["Fname"] = $res_fname;
 					$_SESSION["Lname"] = $res_lname;
+					$_SESSION["DOB"] = $res_DOB;
+					$_SESSION["SSN"] = $res_SSN;
+					$_SESSION["address"] = $res_address;
+					$_SESSION["city"] = $res_city;
+					$_SESSION["state"] = $res_state;
+					$_SESSION["email"] = $res_email;
+
+
+					$_SESSION["username"] = $res_user;
 					$_SESSION["param_password"] = $password;
 					$_SESSION["password"] = $res_password;
+
 
 					header("Location: Employee.php");
 				}
@@ -108,11 +117,20 @@ if (isset($_POST['Login'])) {
 
 					if ($isGood) {
 						$_SESSION["UserID"] = $res_id;
-						$_SESSION["username"] = $res_user;
 						$_SESSION["Fname"] = $res_fname;
 						$_SESSION["Lname"] = $res_lname;
+						$_SESSION["DOB"] = $res_DOB;
+						$_SESSION["SSN"] = $res_SSN;
+						$_SESSION["address"] = $res_address;
+						$_SESSION["city"] = $res_city;
+						$_SESSION["state"] = $res_state;
+						$_SESSION["email"] = $res_email;
+
+
+						$_SESSION["username"] = $res_user;
 						$_SESSION["param_password"] = $password;
 						$_SESSION["password"] = $res_password;
+
 
 						header("Location: Employee.php");
 
