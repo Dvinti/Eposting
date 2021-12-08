@@ -12,15 +12,16 @@
 
 	<div>
 	    <header>
-		<a class="EPostingLogo" href="/">
+		<a class="EPostingLogo" href="index.php">
 		    <img src="images/logo header.png" alt="images/icon.png">
 		</a>
 	    </header>
 	    <main>
 		<div class="bg-image">
+
 		    <div class="SignInCard">
 			<h1 class="SignInTitle">Log in Employee</h1>
-			<input type="button" onclick="location.href='index.php';" value="Back"/>
+		<input type="button" onclick="location.href='index.php';" value="Back"/>
 
 			<form class="Login" method="post" action="loginEmployee.php">
 			    <div class="input">
