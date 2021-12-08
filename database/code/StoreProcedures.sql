@@ -47,7 +47,7 @@ END;
 //
 DELIMITER ;
 
---CALL RegisterEmployee('Fname','Lname','1970-11-24','SSN','Address','Bakersfield','CA','@email','username2','password3');
+CALL RegisterEmployee('Fname','Lname','1970-11-24','SSN','Address','Bakersfield','CA','@email','username2','password3');
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -105,10 +105,13 @@ DELIMITER //
 
 CREATE PROCEDURE newApplication(userID INT, jobID INT)
 BEGIN
-    SELECT * FROM apply;
+    SELECT COUNT(*) INTO @appCount
+    FROM apply
+    WHERE employeeUserID = userID
+    AND job_listingID = jobID;
 
-    IF employeeUserID = userID AND job_listingID = jobID THEN
-        SELECT NULL AS jobID, "Job Application already exists" AS 'ERROR';
+    IF @appCount > 0 THEN
+        SELECT NULL AS ID, "Job Application already exists" AS 'ERROR';
     ELSE
         INSERT INTO apply (employeeUserID, job_listingID) VALUES (UserID, jobID);
     END IF;
@@ -117,4 +120,5 @@ END;
 
 DELIMITER ;
 
+CALL newApplication(29, 24);
 ----------------------------------------------------------------------------------------------------------------------------------------------------

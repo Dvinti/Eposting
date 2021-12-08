@@ -5,8 +5,8 @@ CREATE TABLE includes (
   skill_ID INTEGER,
   exp_years INTEGER(2),
   PRIMARY KEY (resumeID, skill_ID),
-  CONSTRAINT `fk_includes_resume` FOREIGN KEY (resumeID) REFERENCES `resume` (ID) ON DELETE CASCADE,
-  CONSTRAINT `fk_includes_skills` FOREIGN KEY (skill_ID) REFERENCES `skills` (ID) ON DELETE CASCADE
+  CONSTRAINT `fk_includes_resume` FOREIGN KEY (resumeID) REFERENCES `resume` (ID) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_includes_skills` FOREIGN KEY (skill_ID) REFERENCES `skills` (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO includes (resumeID, skill_ID, exp_years) VALUES ( 1, (SELECT ID FROM skills WHERE skill="Engineering Mathematics"), 7);

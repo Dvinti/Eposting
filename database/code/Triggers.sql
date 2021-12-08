@@ -53,6 +53,24 @@ END;
 DELIMITER ;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+-- Doesnt Work
+-- If an employee is removed, the resume is also removed.
+
+DROP TRIGGER IF EXISTS updateEmployee;
+
+DELIMITER //
+
+CREATE TRIGGER updateEmployee
+AFTER UPDATE ON employee
+FOR EACH ROW
+BEGIN
+    UPDATE resume SET employeeUserID = NEW.UserID WHERE employeeUserID = UserID;
+END;
+//
+
+DELIMITER ;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- If email is not valid, will not insert
 
